@@ -10,12 +10,15 @@
 
 <body>
     <div class="cuerpo">
-        <div class="cuadro" id="cuadro1" >Cuadrado 1
-            <p>image</p>
+        <div class="cuadro cuadro2" id="cuadro1" onclick="front()">
+            <h2 class="title-cuadro">Frontend</h2>
+            <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/frontend.png" class="image-cuadro-2" id="image-front" alt="logo-americo-roca">
+
         </div>
-        <div class="cuadro" id="cuadro2">Cuadrado 2
-            <h2>Frontend</h2>
-            <p>asdasdasdasd</p>
+        <div class="cuadro cuadro2" id="cuadro2" onclick="back()">
+            <h2 class="title-cuadro">Backend</h2>
+            <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/back.png" class="image-cuadro-2"  id="image-back" alt="logo-americo-roca">
+
         </div>
         <div class="cuadro" id="cuadro3" onclick="action()">
             <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/01/logo-1.png" class="image-cuadro" alt="logo-americo-roca">
@@ -52,11 +55,10 @@
         }
     }
     .cuadro {
-        margin-top: 100px;
-        margin-bottom: 200px;
+        margin-top: 500px; /*change this one in wordpress*/
+        /*margin-bottom: 200px;*/
         width: 300px;
         height: 300px;
-        border: 1px solid;
         background-color: #1D2327;
         display: inline-flex;
         justify-content: center;
@@ -64,28 +66,66 @@
         text-align: center;
         display: none;
         border-radius: 5000px;
+        color: white;
     }
-    #cuadro2{
+    .cuadro2{
         align-items: center;
         position: absolute;
         transition: 3s;
+        opacity: 0;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .cuadro2:hover{
+        background: linear-gradient(to bottom, #999999, #cccccc);
+        color: black;
+    }
+    .cuadro2:hover img{
+        filter: invert(0);
     }
 
     #cuadro3{
         align-items: center;
         position: absolute;
+        cursor: pointer;
     }
+
+    #cuadro3:hover{
+        background: linear-gradient(to bottom, #999999, #cccccc);
+    }
+
 
     .image-cuadro{
         align-items: center;
         margin-top: 80px;
     }
 
-    #cuadro1{
-        align-items: center;
-        position: absolute;
+    .image-cuadro:hover{
         transition: 3s;
-    }   
+        transform: scale(1.1);
+    }
+
+    .image-cuadro-2{
+        align-items: center;
+        filter: invert(1.0);
+    }
+
+    #image-front{
+        width: 250px;
+        margin-top: 10px;
+    }
+
+    #image-back{
+        margin-top: 0;
+        width: 190px;
+
+    }
+
+    .title-cuadro{
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
    
 </style>
 
@@ -93,12 +133,15 @@
 <script>
 
     $(document).ready(function() {
-    $(".cuadro").fadeIn(5000);
+    $(".cuadro").fadeIn(2000);
     });
 
     function action(){  
 
         if(window.innerWidth>= 1018){
+            
+            document.getElementById("cuadro1").style.opacity=100;
+            document.getElementById("cuadro2").style.opacity=100;
 
             gsap.to("#cuadro2", { 
                 x: 350,
@@ -116,9 +159,9 @@
     
     }
 
-    actualizar();
+    /*action();*/
 
-    window.addEventListener('resize', actualizar);
+    window.addEventListener('resize', action);
 
  
   
