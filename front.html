@@ -10,15 +10,34 @@
 
 <body>
     <div class="cuerpo">
-        <div class="cuadro cuadro2" id="cuadro1" onclick="front()">
-            <h2 class="title-cuadro">Frontend</h2>
-            <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/frontend.png" class="image-cuadro-2" id="image-front" alt="logo-americo-roca">
+        <div class="cuadro cuadro2" id="cuadro1" onclick="cambiarFuncionFront()">
+                <h2 class="title-cuadro">Frontend</h2>
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/frontend.png" class="image-cuadro-2" id="image-front" alt="logo-americo-roca">    
+        </div>
+        <div class="cuadro cuadro2" id="cuadro2" onclick="cambiarFuncionBack()">
+                <h2 class="title-cuadro">Backend</h2>
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/back.png" class="image-cuadro-2"  id="image-back" alt="logo-americo-roca">
 
         </div>
-        <div class="cuadro cuadro2" id="cuadro2" onclick="back()">
-            <h2 class="title-cuadro">Backend</h2>
-            <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/back.png" class="image-cuadro-2"  id="image-back" alt="logo-americo-roca">
-
+        <div class="cuadro cuadro-front-back" id="front">
+            <div class="iconos-front">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/html.png" class="iconos-tech"  id="html" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/css.png" class="iconos-tech"  id="css" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/bootstrap.png" class="iconos-tech"  id="bootstrap" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/bulma.png" class="iconos-tech"  id="bulma" alt="logo-americo-roca">
+             </div>
+        </div>
+        <div class="cuadro cuadro-front-back" id="back">
+            <div class="iconos-back">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/angular.png" class="iconos-tech"  id="angular" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/js.png" class="iconos-tech"  id="js" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/laravel.png" class="iconos-tech"  id="laravel" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/node.png" class="iconos-tech"  id="node" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/php.png" class="iconos-tech"  id="php" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/express.png" class="iconos-tech"  id="express" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/mongo.png" class="iconos-tech"  id="mongo" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/mysql.png" class="iconos-tech"  id="mysql" alt="logo-americo-roca">
+            </div>
         </div>
         <div class="cuadro" id="cuadro3" onclick="cambiarFuncion()">
             <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/01/logo-1.png" class="image-cuadro" alt="logo-americo-roca">
@@ -68,6 +87,7 @@
         border-radius: 5000px;
         color: white;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
     }
     .cuadro2{
         align-items: center;
@@ -91,11 +111,11 @@
         position: absolute;
         cursor: pointer;
     }
-
+  
+    
     #cuadro3:hover{
         background: linear-gradient(to bottom, #999999, #cccccc);
     }
-
 
     .image-cuadro{
         align-items: center;
@@ -128,7 +148,70 @@
         margin-top: 60px;
         margin-bottom: 0;
     }
-   
+
+    /*card styles */
+
+    .cuadro-front-back{
+        align-items: center;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+    }
+    .frontDesaparece{
+        transition: 3s;
+        opacity: 0;
+        display: none;
+    }
+
+    .backDesaparece{
+        transition: 3s;
+        opacity: 0;
+        display: none;
+    }
+
+    .frontAparece{
+        transition: 3s;
+        opacity: 100;
+    }
+
+    .backAparece{
+        transition: 3s;
+        opacity: 100;
+        align-items: center;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .cuadro3Desaparece{
+        transition: 3s;
+        opacity: 0;
+        align-items: center;
+        position: absolute;
+        cursor: pointer;
+        display: none;
+    }
+
+    .cuadro3Aparece{
+        transition: 3s;
+        opacity: 100;
+        align-items: center;
+        position: absolute;
+        cursor: pointer;
+    }
+    /*iconos */
+    .iconos-front{
+        margin-top: 105px;
+    }
+    .iconos-back{
+        margin-top: 80px;
+    }
+
+    .iconos-tech{
+        width: 69px;
+        filter: grayscale(100%) brightness(200%);
+        margin-bottom: 0;
+    }
+
 </style>
 
 
@@ -139,10 +222,22 @@
     });
 
     var estado = 1;
+    var estadoFront = 1;
+    var estadoBack = 1;
+
+
+    var cuadro3 = document.getElementById("cuadro3");
+    var front = document.getElementById("front");
+    var back = document.getElementById("back");
+    var cuadro2 = document.getElementById("cuadro2");
+
+
+    //FUNCION CIRCULO CENTRAL ABRE Y CIERRA
 
     function funcion1() {
-        console.log("Función 1");
-    
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion 1 in");
 
             if(window.innerWidth>= 1018){
             
@@ -160,10 +255,22 @@
                 });
             }
 
+            if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Aparece')) {
+                cuadro3.classList.remove('cuadro3Aparece');
+                cuadro3.classList.add('cuadro');
+            } 
+
+            console.log("Out");
+            console.log(cuadro3);
+            console.log("Funcion  1 out");
+        
     }
 
     function funcion2() {
-        console.log("Función 2");
+
+        console.log("In");
+        console.log(cuadro3);
+        console.log("Funcion 2 in");
 
         if(window.innerWidth>= 1018){
             
@@ -179,28 +286,171 @@
                         
                         
             });
+            console.log(cuadro3);
         }
 
 
-    }
+        console.log("Out");
+        console.log(cuadro3);
+        console.log("Funcion 2 out");
 
-    function cambiarFuncion() {
-    if (estado == 1) {
-        funcion1();
-        estado = 2;
-    } else {
-        funcion2();
-        estado = 1;
-    }
-    }
-
-    /*action();*/
-
-    window.addEventListener('resize', action);
 
  
-  
+    }
+    // FIN FUNCION CIRUCLO CENTRAL ABRE CIERRA
 
+    //FUNCION CIRCULO FRONTEND ABRE Y CIERRA
+
+        function funcionFront1() { //Abriendo FRONTEND
+            
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Front 1 in");
+
+            
+
+            cuadro3.classList.add('cuadro3Desaparece');
+            front.classList.add('frontAparece');
+
+            if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                cuadro3.classList.remove('cuadro3');
+                cuadro3.classList.add('cuadro3Desaparece');
+            } 
+
+            if (back.classList.contains('backAparece')){
+                return estadoFront = 1;
+            }
+
+
+            console.log(cuadro3);
+            console.log("Funcion Front 1 Out");
+                                
+        }
+
+        function funcionFront2() { //Cerrado FRONTEND
+
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Front 2 in");
+
+                if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                    cuadro3.classList.remove('cuadro3Desaparece');
+                    cuadro3.classList.add('cuadro3Aparece');
+                    front.classList.remove('frontAparece');
+                    front.classList.add('frontDesaparece');
+                } 
+
+            gsap.to("#cuadro2", { 
+                x: 0,
+            });
+
+            gsap.to("#cuadro1", { 
+                x: 0,
+                        
+                        
+            });
+            console.log("Out");
+            console.log(cuadro3);
+            console.log("Funcion Front 2 Out");
+
+            estado = 1;
+
+        }
+
+        // FIN FUNCION CIRCULO FRONTEND ABRE CIERRA
+
+        // FUNCION CIRCULO BACKEND ABRE CIERRA
+
+        function funcionBack1() { //Abriendo BACKEND
+
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Back 1 in");
+
+                console.log("Abierto");
+
+                cuadro3.classList.add('cuadro3Desaparece');
+                back.classList.add('backAparece');
+                
+                if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                    cuadro3.classList.remove('cuadro3');
+                    cuadro3.classList.add('cuadro3Desaparece');
+                } 
+
+                if (back.classList.contains('frontAparece')){
+                    return estadoBack = 1;
+                }
+
+                console.log("Out");
+                console.log(cuadro3);
+                console.log("Funcion Back 1 Out");
+
+        }
+
+        function funcionBack2() { //Cerrado BACKEND
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Back 2 in");
+
+                if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                    cuadro3.classList.remove('cuadro3Desaparece');
+                    cuadro3.classList.add('cuadro3Aparece');
+                    back.classList.remove('backAparece');
+                    back.classList.add('backDesaparece');
+                } 
+
+
+                gsap.to("#cuadro2", { 
+                    x: 0,
+                });
+
+                gsap.to("#cuadro1", { 
+                    x: 0,
+                            
+                            
+                });
+                
+                console.log("Out");
+                console.log(cuadro3);
+                console.log("Funcion Back 2 Out");
+
+                estado = 1;
+            
+        }
+        
+        // FIN FUNCION BACKEND
+
+
+    function cambiarFuncion() {
+        if (estado == 1) {
+            funcion1();
+            estado = 2;
+        } else {
+            funcion2();
+            estado = 1;
+        }
+    }
+
+    function cambiarFuncionFront() {
+        if (estadoFront == 1) {
+            funcionFront1();
+            estadoFront = 2;
+        } else {
+            funcionFront2();
+            estadoFront = 1;
+        }
+    }
+
+    function cambiarFuncionBack() {
+
+        if (estadoBack == 1) {
+            funcionBack1();
+            estadoBack = 2;
+        } else {
+            funcionBack2();
+            estadoBack = 1;
+        }
+    }
 
 
 
