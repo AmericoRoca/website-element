@@ -142,22 +142,24 @@
         cursor: pointer;
         opacity: 0;
     }
-    #front1{
+    .frontDesaparece{
         transition: 3s;
         opacity: 0;
+        display: none;
     }
 
-    #back1{
+    .backDesaparece{
         transition: 3s;
         opacity: 0;
+        display: none;
     }
 
-    #front2{
+    .frontAparece{
         transition: 3s;
         opacity: 100;
     }
 
-    #back2{
+    .backAparece{
         transition: 3s;
         opacity: 100;
         align-items: center;
@@ -165,15 +167,16 @@
         cursor: pointer;
     }
 
-    #cuadro3B1{
+    .cuadro3Desaparece{
         transition: 3s;
         opacity: 0;
         align-items: center;
         position: absolute;
         cursor: pointer;
+        display: none;
     }
 
-    #cuadro3B2{
+    .cuadro3Aparece{
         transition: 3s;
         opacity: 100;
         align-items: center;
@@ -192,10 +195,22 @@
     });
 
     var estado = 1;
+    var estadoFront = 1;
+    var estadoBack = 1;
+
+
+    var cuadro3 = document.getElementById("cuadro3");
+    var front = document.getElementById("front");
+    var back = document.getElementById("back");
+    var cuadro2 = document.getElementById("cuadro2");
+
+
+    //FUNCION CIRCULO CENTRAL ABRE Y CIERRA
 
     function funcion1() {
-        console.log("Función 1");
-    
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion 1 in");
 
             if(window.innerWidth>= 1018){
             
@@ -212,13 +227,23 @@
                             
                 });
             }
-            console.log(estado+" variable");
 
+            if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Aparece')) {
+                cuadro3.classList.remove('cuadro3Aparece');
+                cuadro3.classList.add('cuadro');
+            } 
+
+            console.log("Out");
+            console.log(cuadro3);
+            console.log("Funcion  1 out");
+        
     }
 
     function funcion2() {
 
-        console.log("Función 2");
+        console.log("In");
+        console.log(cuadro3);
+        console.log("Funcion 2 in");
 
         if(window.innerWidth>= 1018){
             
@@ -234,34 +259,54 @@
                         
                         
             });
-            console.log(estado+" variable");
-
+            console.log(cuadro3);
         }
+
+
+        console.log("Out");
+        console.log(cuadro3);
+        console.log("Funcion 2 out");
 
 
  
     }
-    ///
+    // FIN FUNCION CIRUCLO CENTRAL ABRE CIERRA
+
+    //FUNCION CIRCULO FRONTEND ABRE Y CIERRA
+
         function funcionFront1() { //Abriendo FRONTEND
+            
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Front 1 in");
 
-            console.log("Abierto");
-            var cuadro3 = document.getElementById("cuadro3");
-            var front = document.getElementById("front");
+            
 
-            cuadro3.setAttribute("id", "cuadro3B1");
-            front.setAttribute("id","front2");
+            cuadro3.classList.add('cuadro3Desaparece');
+            front.classList.add('frontAparece');
 
-            console.log(estado+" variable");
+            if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                cuadro3.classList.remove('cuadro3');
+                cuadro3.classList.add('cuadroDesaparece');
+            } 
+
+            console.log(cuadro3);
+            console.log("Funcion Front 1 Out");
+                                
         }
 
         function funcionFront2() { //Cerrado FRONTEND
 
-            console.log("Cerrado");
-            var front = document.getElementById("front2");
-            var cuadro3 = document.getElementById("cuadro3B1");
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Front 1 in");
 
-            front.setAttribute("id", "front1");
-            cuadro3.setAttribute("id", "cuadro3B2");
+                if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                    cuadro3.classList.remove('cuadro3Desaparece');
+                    cuadro3.classList.add('cuadro3Aparece');
+                    front.classList.remove('frontAparece');
+                    front.classList.add('frontDesaparece');
+                } 
 
             gsap.to("#cuadro2", { 
                 x: 0,
@@ -272,48 +317,72 @@
                         
                         
             });
-            console.log(estado+" variable");
+            console.log("Out");
+            console.log(cuadro3);
+            console.log("Funcion Front 1 Out");
 
-            setTimeout(recargarElemento, 3000);
+            estado = 1;
 
         }
 
-    ///
+        // FIN FUNCION CIRCULO FRONTEND ABRE CIERRA
 
-    function funcionBack1() { //Abriendo BACKEND
+        // FUNCION CIRCULO BACKEND ABRE CIERRA
 
-            console.log("Abierto");
-            var cuadro3 = document.getElementById("cuadro3");
-            var back = document.getElementById("back");
+        function funcionBack1() { //Abriendo BACKEND
 
-            cuadro3.setAttribute("id", "cuadro3B1");
-            back.setAttribute("id","back2");
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Back 1 in");
 
-            console.log(estado+" variable");
-    }
+                console.log("Abierto");
 
-    function funcionBack2() { //Cerrado BACKEND
+                cuadro3.classList.add('cuadro3Desaparece');
+                back.classList.add('backAparece');
+                
+                if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                    cuadro3.classList.remove('cuadro3');
+                    cuadro3.classList.add('cuadro3Desaparece');
+                } 
 
-            console.log("Cerrado");
-            var back = document.getElementById("back2");
-            var cuadro3 = document.getElementById("cuadro3B1");
+                console.log("Out");
+                console.log(cuadro3);
+                console.log("Funcion Back 1 Out");
 
-            back.setAttribute("id", "back1");
-            cuadro3.setAttribute("id", "cuadro3B2");
+        }
 
-            gsap.to("#cuadro2", { 
-                x: 0,
-            });
+        function funcionBack2() { //Cerrado BACKEND
+            console.log("In");
+            console.log(cuadro3);
+            console.log("Funcion Back 2 in");
 
-            gsap.to("#cuadro1", { 
-                x: 0,
-                        
-                        
-            });
-            console.log(estado+" variable");
+                if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
+                    cuadro3.classList.remove('cuadro3Desaparece');
+                    cuadro3.classList.add('cuadro3Aparece');
+                    back.classList.remove('backAparece');
+                    back.classList.add('backDesaparece');
+                } 
 
-            setTimeout(recargarElemento, 3000);
-    }
+
+                gsap.to("#cuadro2", { 
+                    x: 0,
+                });
+
+                gsap.to("#cuadro1", { 
+                    x: 0,
+                            
+                            
+                });
+                
+                console.log("Out");
+                console.log(cuadro3);
+                console.log("Funcion Back 2 Out");
+
+                estado = 1;
+            
+        }
+        
+        // FIN FUNCION BACKEND
 
 
     function cambiarFuncion() {
@@ -327,30 +396,26 @@
     }
 
     function cambiarFuncionFront() {
-        if (estado == 2) {
+        if (estadoFront == 1) {
             funcionFront1();
-            estado = 1;
+            estadoFront = 2;
         } else {
             funcionFront2();
-            estado = 1;
+            estadoFront = 1;
         }
     }
 
     function cambiarFuncionBack() {
 
-        if (estado == 2) {
+        if (estadoBack == 1) {
             funcionBack1();
-            estado = 1;
+            estadoBack = 2;
         } else {
             funcionBack2();
-            estado = 1;
+            estadoBack = 1;
         }
     }
 
-        function recargarElemento() {
-            // Recargar el elemento aquí...
-            location.reload();
-        }
 
 
 </script>
