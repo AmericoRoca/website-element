@@ -20,10 +20,24 @@
 
         </div>
         <div class="cuadro cuadro-front-back" id="front">
-            <p>test-front</p>
+            <div class="iconos-front">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/html.png" class="iconos-tech"  id="html" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/css.png" class="iconos-tech"  id="css" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/bootstrap.png" class="iconos-tech"  id="bootstrap" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/bulma.png" class="iconos-tech"  id="bulma" alt="logo-americo-roca">
+             </div>
         </div>
         <div class="cuadro cuadro-front-back" id="back">
-            <p>test-back</p>
+            <div class="iconos-back">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/angular.png" class="iconos-tech"  id="angular" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/js.png" class="iconos-tech"  id="js" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/laravel.png" class="iconos-tech"  id="laravel" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/node.png" class="iconos-tech"  id="node" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/php.png" class="iconos-tech"  id="php" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/express.png" class="iconos-tech"  id="express" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/mongo.png" class="iconos-tech"  id="mongo" alt="logo-americo-roca">
+                <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/mysql.png" class="iconos-tech"  id="mysql" alt="logo-americo-roca">
+            </div>
         </div>
         <div class="cuadro" id="cuadro3" onclick="cambiarFuncion()">
             <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/01/logo-1.png" class="image-cuadro" alt="logo-americo-roca">
@@ -73,6 +87,7 @@
         border-radius: 5000px;
         color: white;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
     }
     .cuadro2{
         align-items: center;
@@ -183,8 +198,20 @@
         position: absolute;
         cursor: pointer;
     }
+    /*iconos */
+    .iconos-front{
+        margin-top: 105px;
+    }
+    .iconos-back{
+        margin-top: 80px;
+    }
 
-   
+    .iconos-tech{
+        width: 69px;
+        filter: grayscale(100%) brightness(200%);
+        margin-bottom: 0;
+    }
+
 </style>
 
 
