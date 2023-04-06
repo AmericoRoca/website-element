@@ -287,8 +287,13 @@
 
             if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Desaparece')) {
                 cuadro3.classList.remove('cuadro3');
-                cuadro3.classList.add('cuadroDesaparece');
+                cuadro3.classList.add('cuadro3Desaparece');
             } 
+
+            if (back.classList.contains('backAparece')){
+                return estadoFront = 1;
+            }
+
 
             console.log(cuadro3);
             console.log("Funcion Front 1 Out");
@@ -299,7 +304,7 @@
 
             console.log("In");
             console.log(cuadro3);
-            console.log("Funcion Front 1 in");
+            console.log("Funcion Front 2 in");
 
                 if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
                     cuadro3.classList.remove('cuadro3Desaparece');
@@ -319,7 +324,7 @@
             });
             console.log("Out");
             console.log(cuadro3);
-            console.log("Funcion Front 1 Out");
+            console.log("Funcion Front 2 Out");
 
             estado = 1;
 
@@ -344,6 +349,10 @@
                     cuadro3.classList.remove('cuadro3');
                     cuadro3.classList.add('cuadro3Desaparece');
                 } 
+
+                if (back.classList.contains('frontAparece')){
+                    return estadoBack = 1;
+                }
 
                 console.log("Out");
                 console.log(cuadro3);
