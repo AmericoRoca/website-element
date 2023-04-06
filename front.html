@@ -213,6 +213,7 @@
                 });
             }
             console.log(estado+" variable");
+
     }
 
     function funcion2() {
@@ -234,7 +235,9 @@
                         
             });
             console.log(estado+" variable");
+
         }
+
 
  
     }
@@ -271,6 +274,8 @@
             });
             console.log(estado+" variable");
 
+            setTimeout(recargarElemento, 3000);
+
         }
 
     ///
@@ -306,7 +311,8 @@
                         
             });
             console.log(estado+" variable");
-        
+
+            setTimeout(recargarElemento, 3000);
     }
 
 
@@ -341,8 +347,10 @@
         }
     }
 
-
-
+        function recargarElemento() {
+            // Recargar el elemento aquí...
+            location.reload();
+        }
 
 
 </script>
