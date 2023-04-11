@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="cuerpo">
+    <div class="cuerpo" id="cuerpo">
         <div class="cuadro cuadro2" id="cuadro1" onclick="cambiarFuncionFront()">
                 <h2 class="title-cuadro">Frontend</h2>
                 <img src="https://americoroca.elementor.cloud/wp-content/uploads/2023/04/frontend.png" class="image-cuadro-2" id="image-front" alt="logo-americo-roca">    
@@ -57,6 +57,15 @@
         align-items: center;
     }
 
+    .cuerpo-responsive{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+        transition: 3s;
+    }
+
     @media (max-width: 500px){
         .cuadro{
             display: inline;
@@ -89,6 +98,7 @@
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         overflow: hidden;
     }
+
     .cuadro2{
         align-items: center;
         position: absolute;
@@ -230,7 +240,7 @@
     var front = document.getElementById("front");
     var back = document.getElementById("back");
     var cuadro2 = document.getElementById("cuadro2");
-
+    var cuerpo = document.getElementById("cuerpo");
 
     //FUNCION CIRCULO CENTRAL ABRE Y CIERRA
 
@@ -253,6 +263,28 @@
                             
                             
                 });
+            } 
+            
+            if (window.innerWidth<= 1018 && window.innerWidth>= 333){
+
+                document.getElementById("cuadro1").style.opacity=100;
+                document.getElementById("cuadro2").style.opacity=100;
+
+                gsap.to("#cuadro2", { 
+                    y: 640,
+                });
+
+                gsap.to("#cuadro1", { 
+                    y: 320,
+                            
+                            
+                });
+
+
+
+                cuerpo.classList.remove('cuerpo');
+                cuerpo.classList.add('cuerpo-responsive');
+
             }
 
             if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Aparece')) {
@@ -287,8 +319,29 @@
                         
             });
             console.log(cuadro3);
+
+
         }
 
+        if (window.innerWidth<= 1018 && window.innerWidth>= 333){
+
+            document.getElementById("cuadro1").style.opacity=100;
+            document.getElementById("cuadro2").style.opacity=100;
+
+            gsap.to("#cuadro2", { 
+                y: 0,
+            });
+
+            gsap.to("#cuadro1", { 
+                y: 0,
+                        
+                        
+            });
+
+            cuerpo.classList.remove('cuerpo');
+            cuerpo.classList.add('cuerpo-responsive');
+
+        }
 
         console.log("Out");
         console.log(cuadro3);
@@ -346,6 +399,16 @@
 
             gsap.to("#cuadro1", { 
                 x: 0,
+                        
+                        
+            });
+
+            gsap.to("#cuadro2", { 
+                y: 0,
+            });
+
+            gsap.to("#cuadro1", { 
+                y: 0,
                         
                         
             });
@@ -410,6 +473,16 @@
                             
                 });
                 
+                gsap.to("#cuadro2", { 
+                    y: 0,
+                });
+
+                gsap.to("#cuadro1", { 
+                    y: 0,
+                        
+                        
+                });
+
                 console.log("Out");
                 console.log(cuadro3);
                 console.log("Funcion Back 2 Out");
