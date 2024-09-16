@@ -8,6 +8,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
     <style>
+        @font-face {
+            font-family: 'MiFuentePersonalizada';
+            src: url('https://americoroca.es/wp-content/themes/tu-tema/fonts/LOT.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
         .cuerpo {
             display: flex;
             justify-content: center;
@@ -47,14 +55,13 @@
             margin-bottom: 200px;
             width: 300px;
             height: 300px;
-            background-color: #1D2327;
+            background-color: #37505d;
             display: inline-flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             display: block;
             border-radius: 5000px;
-            color: white;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             overflow: hidden;
 
@@ -74,9 +81,6 @@
             color: black;
         }
 
-        .cuadro2:hover img {
-            filter: invert(0);
-        }
 
         #cuadro3 {
             align-items: center;
@@ -91,7 +95,9 @@
 
         .image-cuadro {
             align-items: center;
-            margin-top: 80px;
+            margin-top: 60px;
+            width: 220px;
+            margin-left: 10px;
         }
 
         .image-cuadro:hover {
@@ -102,23 +108,34 @@
         .image-cuadro-2 {
             align-items: center;
             transition: 2s;
-            filter: invert(1.0);
+            width: 80px;
         }
 
+        .image-cuadro-2:hover {
+            transition: 3s;
+            transform: scale(1.1);
+        }
+
+
         #image-front {
-            width: 200px;
-            margin-top: 20px;
+            width: 110px;
         }
 
         #image-back {
-            margin-top: 0px;
-            width: 150px;
+            width: 110px;
 
         }
 
         .title-cuadro {
-            margin-top: 60px;
-            margin-bottom: 0;
+            margin-top: 80px;
+            margin-bottom: 10px;
+            font-family: 'MiFuentePersonalizada', Inter, sans-serif;
+            color: black;
+        }
+
+        .title-cuadro:hover {
+            transition: 3s;
+            transform: scale(1.1);
         }
 
         /*card styles */
@@ -193,57 +210,45 @@
     <div class="cuerpo" id="cuerpo">
         <div class="cuadro cuadro2" id="cuadro1">
             <h2 class="title-cuadro">Frontend</h2>
-            <img src="#"
-                class="image-cuadro-2" id="image-front" alt="logo-americo-roca">
+            <img src="https://americoroca.es/wp-content/uploads/2024/09/front-3.png" class="image-cuadro-2"
+                id="image-front" alt="logo-americo-roca">
         </div>
         <div class="cuadro cuadro2" id="cuadro2">
             <h2 class="title-cuadro">Backend</h2>
-            <img src="#" class="image-cuadro-2"
+            <img src="https://americoroca.es/wp-content/uploads/2024/09/backend-2.png" class="image-cuadro-2"
                 id="image-back" alt="logo-americo-roca">
 
         </div>
         <div class="cuadro cuadro-front-back" id="front">
             <div class="iconos-front">
-                <img src="#" class="iconos-tech"
-                    id="html" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech"
-                    id="css" alt="logo-americo-roca">
-                <img src="#"
-                    class="iconos-tech" id="bootstrap" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech"
-                    id="bulma" alt="logo-americo-roca">
-                <img src="#"
-                    class="iconos-tech" id="react" alt="logo-americo-roca">
-                <img src="#"
-                    class="iconos-tech" id="laravel" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="html" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="css" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="bootstrap" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="bulma" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="react" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="laravel" alt="logo-americo-roca">
             </div>
         </div>
         <div class="cuadro cuadro-front-back" id="back">
             <div class="iconos-back">
 
-                <img src="#" class="iconos-tech"
-                    id="js" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech"
-                    id="node" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech"
-                    id="php" alt="logo-americo-roca">
-                <img src="#"
-                    class="iconos-tech" id="express" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech"
-                    id="mongo" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech"
-                    id="mysql" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="js" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="node" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="php" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="express" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="mongo" alt="logo-americo-roca">
+                <img src="#" class="iconos-tech" id="mysql" alt="logo-americo-roca">
             </div>
         </div>
         <div class="cuadro" id="cuadro3">
-            <img src="#" class="image-cuadro"
-                alt="logo-americo-roca">
+            <img src="https://americoroca.es/wp-content/uploads/2024/09/Imagen_de_WhatsApp_2024-09-16_a_las_19.01.57_55dadf04-removebg-preview.png"
+                class="image-cuadro" alt="logo-americo-roca">
         </div>
     </div>
 
 
     <script>
-        
+
         var estado = 1;
         var estadoFront = 1;
         var estadoBack = 1;
@@ -347,7 +352,7 @@
 
             }
 
-            if (window.innerWidth <= 1018 ) {
+            if (window.innerWidth <= 1018) {
 
                 document.getElementById("cuadro1").style.opacity = 100;
                 document.getElementById("cuadro2").style.opacity = 100;
