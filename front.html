@@ -243,7 +243,17 @@
 
 
     <script>
+        
+        var estado = 1;
+        var estadoFront = 1;
+        var estadoBack = 1;
 
+
+        var cuadro3 = document.getElementById("cuadro3");
+        var front = document.getElementById("front");
+        var back = document.getElementById("back");
+        var cuadro2 = document.getElementById("cuadro2");
+        var cuerpo = document.getElementById("cuerpo");
 
 
         jQuery(document).ready(function ($) {
@@ -259,16 +269,6 @@
 
         });
 
-        var estado = 1;
-        var estadoFront = 1;
-        var estadoBack = 1;
-
-
-        var cuadro3 = document.getElementById("cuadro3");
-        var front = document.getElementById("front");
-        var back = document.getElementById("back");
-        var cuadro2 = document.getElementById("cuadro2");
-        var cuerpo = document.getElementById("cuerpo");
 
         //FUNCION CIRCULO CENTRAL ABRE Y CIERRA
 
@@ -293,7 +293,7 @@
                 });
             }
 
-            if (window.innerWidth <= 1018 && window.innerWidth >= 333) {
+            if (window.innerWidth <= 1018) {
 
                 document.getElementById("cuadro1").style.opacity = 100;
                 document.getElementById("cuadro2").style.opacity = 100;
@@ -311,7 +311,7 @@
             }
 
 
-            if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Aparece')) {
+            if (cuadro3.classList.contains('cuadro')) {
                 cuadro3.classList.remove('cuadro3Aparece');
                 cuadro3.classList.add('cuadro');
             }
@@ -347,7 +347,7 @@
 
             }
 
-            /*if (window.innerWidth <= 1018 && window.innerWidth >= 333) {
+            if (window.innerWidth <= 1018 ) {
 
                 document.getElementById("cuadro1").style.opacity = 100;
                 document.getElementById("cuadro2").style.opacity = 100;
@@ -365,7 +365,7 @@
                 cuerpo.classList.remove('cuerpo');
                 cuerpo.classList.add('cuerpo-responsive');
 
-            }*/
+            }
 
             console.log("Out");
             console.log(cuadro3);
