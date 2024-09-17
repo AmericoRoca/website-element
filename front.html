@@ -29,11 +29,11 @@
             width: 300px;
             height: 300px;
             transition: 3s;
+            margin: auto;
         }
 
         @media (max-width: 500px) {
             .cuadro {
-                display: inline;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -42,7 +42,6 @@
 
         @media (min-width: 100px) {
             .cuadro {
-                display: block;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -189,6 +188,7 @@
             cursor: pointer;
         }
 
+
         /*iconos */
         .iconos-front {
             margin-top: 105px;
@@ -200,8 +200,42 @@
 
         .iconos-tech {
             width: 69px;
-            filter: grayscale(100%) brightness(200%);
-            margin-bottom: 0;
+        }
+
+        .iconos-tech:hover {
+            animation: pulso 2s infinite;
+            /* Inversa cuando haces hover */
+        }
+
+
+
+        .iconos-tech-back {
+            width: 69px;
+            margin-top: 27px;
+        }
+
+
+
+        .iconos-tech-back:hover {
+            animation: pulso 2s infinite;
+            /* Inversa cuando haces hover */
+        }
+
+        /* Animación para el pulso normal */
+        @keyframes pulso {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+                /* Aumenta el tamaño */
+            }
+
+            100% {
+                transform: scale(1);
+                /* Vuelve al tamaño original */
+            }
         }
     </style>
 </head>
@@ -221,23 +255,27 @@
         </div>
         <div class="cuadro cuadro-front-back" id="front">
             <div class="iconos-front">
-                <img src="#" class="iconos-tech" id="html" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="css" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="bootstrap" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="bulma" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="react" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="laravel" alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/HTML-1.png" class="iconos-tech" id="html"
+                    alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/css-copia-1.png" class="iconos-tech"
+                    id="css" alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/bootstrap-copia-1.png" class="iconos-tech"
+                    id="bootstrap" alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/REACT-1.png" class="iconos-tech" id="react"
+                    alt="logo-americo-roca">
             </div>
         </div>
         <div class="cuadro cuadro-front-back" id="back">
             <div class="iconos-back">
 
-                <img src="#" class="iconos-tech" id="js" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="node" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="php" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="express" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="mongo" alt="logo-americo-roca">
-                <img src="#" class="iconos-tech" id="mysql" alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/java-1.png" class="iconos-tech-back" id="js"
+                    alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/node-1.png" class="iconos-tech-back"
+                    id="node" alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/mongo-1.png" class="iconos-tech-back"
+                    id="mongo" alt="logo-americo-roca">
+                <img src="https://americoroca.es/wp-content/uploads/2024/09/mysql-1.png" class="iconos-tech-back"
+                    id="mysql" alt="logo-americo-roca">
             </div>
         </div>
         <div class="cuadro" id="cuadro3">
@@ -277,8 +315,9 @@
 
         //FUNCION CIRCULO CENTRAL ABRE Y CIERRA
 
+        //Funcion de abertura
         function funcion1() {
-            console.log("In");
+            console.log("Apertura circulos");
             console.log(cuadro3);
             console.log("Funcion 1 in");
 
@@ -327,9 +366,10 @@
 
         }
 
+        //Funcion de cerrado
         function funcion2() {
 
-            console.log("In");
+            console.log("Funcion Cerrado circulos");
             console.log(cuadro3);
             console.log("Funcion 2 in");
 
@@ -383,35 +423,51 @@
 
         //FUNCION CIRCULO FRONTEND ABRE Y CIERRA
 
-        function funcionFront1() { //Abriendo FRONTEND
-
-            console.log("In");
+        function funcionFront1() { // Abriendo FRONTEND
+            console.log("Funcion muestra front");
             console.log(cuadro3);
             console.log("Funcion Front 1 in");
 
-
-
+            // Añadimos las clases para abrir el frontend
             cuadro3.classList.add('cuadro3Desaparece');
             front.classList.add('frontAparece');
+            front.classList.remove('frontDesaparece');
+            back.classList.add('backDesaparece');
 
+            // Condicional para alternar entre los estados
             if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Desaparece')) {
                 cuadro3.classList.remove('cuadro3');
                 cuadro3.classList.add('cuadro3Desaparece');
             }
 
+            // Si el back está visible y el usuario ha clicado en back
             if (back.classList.contains('backAparece')) {
-                return estadoFront = 1;
+                return estadoFront = 1; // Cambiar el estado de front
             }
 
+            // Añadir condicional para mostrar el back si se ha clicado
+            back.addEventListener('click', function () {
+                if (back.classList.contains('backAparece')) {
+                    console.log("Back está visible, mostrando contenido de back");
+
+                    // Mostrar el contenido de back
+                    back.classList.remove('backDesaparece');
+                    back.classList.add('backAparece');
+
+                    // Ocultar el contenido de front
+                    front.classList.remove('frontAparece');
+                    front.classList.add('frontDesaparece');
+                }
+            });
 
             console.log(cuadro3);
             console.log("Funcion Front 1 Out");
-
         }
+
 
         function funcionFront2() { //Cerrado FRONTEND
 
-            console.log("In");
+            console.log("Funcion cerrado front");
             console.log(cuadro3);
             console.log("Funcion Front 2 in");
 
@@ -446,6 +502,7 @@
             console.log("Funcion Front 2 Out");
 
             estado = 1;
+            console.log(estado)
 
         }
 
@@ -453,34 +510,39 @@
 
         // FUNCION CIRCULO BACKEND ABRE CIERRA
 
-        function funcionBack1() { //Abriendo BACKEND
-
-            console.log("In");
+        function funcionBack1() { // Abriendo BACKEND
+            console.log("Funcion muestra back");
             console.log(cuadro3);
             console.log("Funcion Back 1 in");
 
-            console.log("Abierto");
-
+            // Mostrar backend y ocultar frontend
             cuadro3.classList.add('cuadro3Desaparece');
             back.classList.add('backAparece');
+            back.classList.remove('backDesaparece');
+            front.classList.add('frontDesaparece');
 
-            if (cuadro3.classList.contains('cuadro3') || cuadro3.classList.contains('cuadro3Desaparece')) {
+            // Condicional para alternar entre los estados
+            if (cuadro3.classList.contains('cuadro') || cuadro3.classList.contains('cuadro3Desaparece')) {
                 cuadro3.classList.remove('cuadro3');
                 cuadro3.classList.add('cuadro3Desaparece');
             }
 
-            if (back.classList.contains('frontAparece')) {
-                return estadoBack = 1;
+            // Comprobar si el backend está visible y cambiar el estado
+            if (back.classList.contains('backAparece')) {
+                console.log("Backend está visible, activando estadoBack");
+                estadoBack = 1; // Estado de backend activado
+            } else {
+                estadoBack = 0; // Estado de backend desactivado si no está visible
             }
 
             console.log("Out");
             console.log(cuadro3);
             console.log("Funcion Back 1 Out");
-
         }
 
+
         function funcionBack2() { //Cerrado BACKEND
-            console.log("In");
+            console.log("Funcion cierre back");
             console.log(cuadro3);
             console.log("Funcion Back 2 in");
 
