@@ -8,14 +8,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
     <style>
-        @font-face {
-            font-family: 'MiFuentePersonalizada';
-            src: url('https://americoroca.es/wp-content/themes/tu-tema/fonts/LOT.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-
         .cuerpo {
             display: flex;
             justify-content: center;
@@ -128,8 +120,8 @@
         .title-cuadro {
             margin-top: 80px;
             margin-bottom: 10px;
-            font-family: 'MiFuentePersonalizada', Inter, sans-serif;
             color: black;
+            font-size: 35px;
         }
 
         .title-cuadro:hover {
@@ -237,45 +229,127 @@
                 /* Vuelve al tamaño original */
             }
         }
+
+        /* Contenedor de los iconos, sin restricciones de overflow */
+        .icono-container {
+            position: relative;
+            display: inline-block;
+            overflow: visible;
+            /* Aseguramos que los tooltips no se corten */
+        }
+
+        /* Texto del tooltip, inicialmente oculto */
+        .tooltip-text {
+            visibility: hidden;
+            width: 80px;
+            /* Puedes ajustar el ancho aquí */
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            font-size: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            /* Ajusta la posición para que salga del icono */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Flecha del tooltip */
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            /* Flecha aparece arriba si el tooltip está abajo */
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        /* Mostrar el tooltip cuando se pasa el mouse por encima del icono */
+        .icono-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Ajuste de los tooltips de la parte back */
+        .tooltip-text-back {
+            width: 80px;
+        }
     </style>
 </head>
 
 <body>
     <div class="cuerpo" id="cuerpo">
         <div class="cuadro cuadro2" id="cuadro1">
-            <h2 class="title-cuadro">Frontend</h2>
+            <h3 class="title-cuadro">Frontend</h3>
             <img src="https://americoroca.es/wp-content/uploads/2024/09/front-3.png" class="image-cuadro-2"
                 id="image-front" alt="logo-americo-roca">
         </div>
         <div class="cuadro cuadro2" id="cuadro2">
-            <h2 class="title-cuadro">Backend</h2>
+            <h3 class="title-cuadro">Backend</h3>
             <img src="https://americoroca.es/wp-content/uploads/2024/09/backend-2.png" class="image-cuadro-2"
                 id="image-back" alt="logo-americo-roca">
 
         </div>
         <div class="cuadro cuadro-front-back" id="front">
             <div class="iconos-front">
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/HTML-1.png" class="iconos-tech" id="html"
-                    alt="logo-americo-roca">
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/css-copia-1.png" class="iconos-tech"
-                    id="css" alt="logo-americo-roca">
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/bootstrap-copia-1.png" class="iconos-tech"
-                    id="bootstrap" alt="logo-americo-roca">
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/REACT-1.png" class="iconos-tech" id="react"
-                    alt="logo-americo-roca">
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/HTML-1.png" class="iconos-tech"
+                        id="html" alt="logo-americo-roca">
+
+                    <span class="tooltip-text">HTML 5</span>
+                </div>
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/css-copia-1.png" class="iconos-tech"
+                        id="css" alt="logo-americo-roca">
+                    <span class="tooltip-text">CSS 3</span>
+                </div>
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/bootstrap-copia-1.png"
+                        class="iconos-tech" id="bootstrap" alt="logo-americo-roca">
+                    <span class="tooltip-text">BOOTSTRAP</span>
+                </div>
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/REACT-1.png" class="iconos-tech"
+                        id="react" alt="logo-americo-roca">
+                    <span class="tooltip-text">REACT</span>
+                </div>
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/java-1.png" class="iconos-tech" id="js"
+                        alt="logo-americo-roca">
+                    <span class="tooltip-text">JAVASCRIPT</span>
+                </div>
             </div>
         </div>
         <div class="cuadro cuadro-front-back" id="back">
             <div class="iconos-back">
-
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/java-1.png" class="iconos-tech-back" id="js"
-                    alt="logo-americo-roca">
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/node-1.png" class="iconos-tech-back"
-                    id="node" alt="logo-americo-roca">
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/mongo-1.png" class="iconos-tech-back"
-                    id="mongo" alt="logo-americo-roca">
-                <img src="https://americoroca.es/wp-content/uploads/2024/09/mysql-1.png" class="iconos-tech-back"
-                    id="mysql" alt="logo-americo-roca">
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/EX-1.png" class="iconos-tech-back"
+                        id="js" alt="logo-americo-roca">
+                    <span class="tooltip-text">EXPRESS</span>
+                </div>
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/node-1.png" class="iconos-tech-back"
+                        id="node" alt="logo-americo-roca">
+                    <span class="tooltip-text">NODE JS</span>
+                </div>
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/mongo-1.png" class="iconos-tech-back"
+                        id="mongo" alt="logo-americo-roca">
+                    <span class="tooltip-text">MONGO DB</span>
+                </div>
+                <div class="icono-container">
+                    <img src="https://americoroca.es/wp-content/uploads/2024/09/mysql-1.png" class="iconos-tech-back"
+                        id="mysql" alt="logo-americo-roca">
+                    <span class="tooltip-text">MY SQL</span>
+                </div>
             </div>
         </div>
         <div class="cuadro" id="cuadro3">
